@@ -15,7 +15,7 @@ class DirectoryContainer extends React.Component {
     }
 }
 DirectoryContainer.defaultProps = {
-    range: 8,
+    range: 12,
 };
 export default DirectoryContainer = connect(
 )(DirectoryContainer);

@@ -1,9 +1,14 @@
 import React from 'react';
 import App from './App';
 import {connect} from 'react-redux';
-
-class MainContainer extends React.Component {
-
+import GameActions from '../../actions/GameActions'
+class AppContainer extends React.Component {
+    componentDidMount() {
+        const {
+            createGames,
+        } = this.props;
+        createGames(16);
+    }
 
     render() {
         return (
@@ -12,5 +17,10 @@ class MainContainer extends React.Component {
     }
 }
 
-export default MainContainer = connect(
-)(MainContainer);
+export default AppContainer = connect(
+    (state) => ({}),
+    {
+        createGames: GameActions.createGames,
+    }
+)(AppContainer);
+

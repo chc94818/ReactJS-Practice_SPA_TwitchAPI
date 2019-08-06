@@ -7,6 +7,7 @@ const DirectoryDiv = styled.div`
     width: 100%;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 `;
 
 const CardGrid = styled.div`
@@ -15,7 +16,7 @@ const CardGrid = styled.div`
     width: 95%; 
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 3vmax 2vmax;
-    @media screen and (max-width:1200px) {
+    @media screen and (max-width:1400px) {
          grid-template-columns: repeat(3, 1fr);
     }
     @media screen and (max-width:800px) {
@@ -26,13 +27,23 @@ const CardGrid = styled.div`
 class Directory extends React.Component{
     render() {
         const {
-            range,
+            games,
         } = this.props;
-        const cards = Array.from({length: range}, (v, k) => k+1).map((value, key)=> <DirectoryCardContainer key={key} content={value}/>);
+        const gameCards = games.map((game) => {
+            return (
+                <DirectoryCardContainer
+                    key={game.id}
+                    gameId={game.id}
+                    gameName={game.name}
+                    gameImgURL={game.imgURL}
+                />
+            );
+        });
+
         return(
           <DirectoryDiv>
               <CardGrid>
-                  {cards}
+                 {gameCards}
               </CardGrid>
           </DirectoryDiv>
         );

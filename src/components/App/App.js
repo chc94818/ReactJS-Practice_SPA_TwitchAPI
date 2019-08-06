@@ -9,7 +9,7 @@ import LiveContainer from '../Live/LiveContainer';
 const AppDiv = styled.div`
     display: flex;
     background: #3B3B3B;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
     align-items: center;
 `;
@@ -17,7 +17,7 @@ const BodyDiv = styled.div`
     display: flex;
     background: #3B3B3B;    
     flex-direction: column;
-    min-width : 100vw;
+    width : 100%;
     min-height : 100vh;
 `;
 class App extends React.Component {

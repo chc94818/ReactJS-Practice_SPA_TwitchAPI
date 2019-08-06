@@ -3,11 +3,12 @@ import DirectCard from './DirectoryCard'
 class DirectoryCardContainer extends React.Component{
     render() {
         const {
-            content,
+            gameId,
+            gameName,
+            gameImgURL,
         } = this.props;
-
         return (
-            <DirectCard content={content}/>
+            <DirectCard gameId={gameId} gameName={gameName} gameImageSrc={gameImgURL}/>
         );
     }
 }

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import AppContainer from './components/App/AppContainer';
 import * as serviceWorker from './serviceWorker';
 import NavigatorReducer from './reducers/NavigatorReducer'
+import GameReducer from './reducers/GameReducer'
 
 
 const thunkMiddleware = ({ dispatch, getState }) => {
@@ -16,7 +17,7 @@ const thunkMiddleware = ({ dispatch, getState }) => {
     };
 };
 
-const composedReducer = combineReducers({NavigatorReducer});
+const composedReducer = combineReducers({NavigatorReducer, GameReducer});
 const store = createStore(
     composedReducer,
     applyMiddleware(thunkMiddleware)

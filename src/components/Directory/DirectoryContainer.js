@@ -6,13 +6,16 @@ class DirectoryContainer extends React.Component {
 
 
     render() {
+        const {
+            range,
+        } = this.props;
         return (
-            <Directory>
-                directory
-            </Directory>
+            <Directory range={range} />
         )
     }
 }
-
+DirectoryContainer.defaultProps = {
+    range: 8,
+};
 export default DirectoryContainer = connect(
 )(DirectoryContainer);

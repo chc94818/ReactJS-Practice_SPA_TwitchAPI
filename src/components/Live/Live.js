@@ -1,53 +1,76 @@
 import React from 'react';
 import styled from "styled-components";
 
-const TargetDiv = styled.div`
-    display: flex;
+
+const LiveContainer = styled.div`
+    display: flex;    
+    position: relative;
+    background: #5E5E5E;
     flex-direction: column;
     font-weight: bold;
     color: white;
-    cursor : pointer;
     font-size: 0;
     width: 60%
-    @media screen and (max-width:1200px) {
+    padding-bottom: 48%;
+    @media screen and (max-width:1400px) {
         width: 80%;
+        padding-bottom: 56%;
     }
     @media screen and (max-width:800px) {
         width: 100%;
+        padding-bottom: 80%;
     }  
     
 `;
 
-const LiveContainer = styled.div`
-    position: relative;
-    display: block;
+const LiveDiv = styled.div`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 2px;    
+    border-color: #737373;
     width: 100%;
-    padding-bottom: 56.25%;
+    height: 100%;
 `;
+
+const IframeDiv =  styled.div`
+    display: block; 
+    width: 100%;
+    height: 87.5%;
+`;
+
 const InformationDiv = styled.div`
     display: flex;
+    width: 100%;
+    height: 12.5%;
     flex-direction: row;
+        
+    justify-content: flex-start;
     align-items: center;
-    background: #5E5E5E;
-    border-style: solid;    
-    border-width: 0 1px 1px 1px;    
+    
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 2px 0px 0px 0px;    
     border-color: #737373;
-    font-size: 16px;
-    padding-top: 2px;
-    @media screen and (max-width:1200px) {
-        font-size: 12px;
+    
+    font-size: calc(12px + 0.5vw);
+    @media screen and (max-width:1400px) {
+        font-size: calc(6px + 1vw);
     }
     @media screen and (max-width:800px) {
-         font-size: 8px;
+         font-size: calc(1px + 2vw);
     }
 `;
 
 const LogoContainer = styled.div`
     display: inline-block;
     position: relative;
-    width: 4.5em;
-    padding-top: 4.5em;
-    margin-right: 0.5em;   
+    width: 10%;
+    height: 100%;
 `;
 
 const Logo = styled.img`
@@ -60,8 +83,11 @@ const Logo = styled.img`
 `;
 const TextContainer = styled.div`
     flex-direction: column;
-    justify-content: space-between;    
-    width: 80%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    
     & *{
         margin: auto 0;
         height: 1.5em;
@@ -69,6 +95,7 @@ const TextContainer = styled.div`
         font-size: 1em;        
         overflow: hidden;
     }
+    padding-left: 2px;
 `;
 
 const TitleText = styled.div`
@@ -80,35 +107,49 @@ const TitleText = styled.div`
 const ProfileText = styled.div`
     color: white;
 `;
+
+
 class Live extends React.Component {
+// <iframe
+// src={`https://player.twitch.tv/?channel=${watchChannel.name}&muted=true&controls=true`}
+// title={'liveVideo'}
+// style={{
+//     position: 'absolute',
+//     width: '100%',
+//     height: '100%',
+//     border: 'none',
+// }}
+// allowFullScreen
+// />
     render() {
-        //const {watchChannel} = this.props;
+        const {watchChannel} = this.props;
         return (
-            <TargetDiv onClick={this.clickHandler}>
-                <LiveContainer>
-                    {/*<iframe
-                        src={`https://player.twitch.tv/?channel=${watchChannel.name}&muted=true&controls=true`}
-                        title={'liveVideo'}
-                        style={{
-                            position: 'absolute',
-                            width: '100%',
-                            height: '100%',
-                            border: 'none',
-                        }}
-                        allowFullScreen
-                    />*/}
-                </LiveContainer>
-                <InformationDiv>
-                    <LogoContainer>
-                        {/*<Logo alt={'logo'} src={watchChannel.profile_image_url}/>*/}
-                    </LogoContainer>
-                    <TextContainer>
-                        <TitleText>{123}</TitleText>
-                        <ProfileText>{123}</ProfileText>
-                        <ProfileText>{123} 位觀眾</ProfileText>
-                    </TextContainer>
-                </InformationDiv>
-            </TargetDiv>
+            <LiveContainer onClick={this.clickHandler}>
+                <LiveDiv>
+                    <IframeDiv>
+                        <iframe
+                            src={`https://player.twitch.tv/?channel=${watchChannel.name}&muted=true&controls=true`}
+                            title={'liveVideo'}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                border: 'none',
+                            }}
+                            allowFullScreen
+                        />
+                    </IframeDiv>
+                    <InformationDiv>
+                        <LogoContainer>
+                            <Logo alt={'logo'} src={watchChannel.profile_image_url}/>
+                        </LogoContainer>
+                        <TextContainer>
+                            <TitleText>{watchChannel.title}</TitleText>
+                            <ProfileText>{watchChannel.name}</ProfileText>
+                            <ProfileText>{watchChannel.viewers} 位觀眾</ProfileText>
+                        </TextContainer>
+                    </InformationDiv>
+                </LiveDiv>
+            </LiveContainer>
 
         );
     }

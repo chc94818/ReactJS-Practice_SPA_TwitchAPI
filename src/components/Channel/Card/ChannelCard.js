@@ -85,10 +85,10 @@ const Logo = styled.img`
     transform: translate(-50%, -50%);
 `;
 const TextContainer = styled.div`
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;    
-    width: 78%;
+    justify-content: space-between;   
     height: 100%;
      
     & *{

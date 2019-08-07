@@ -63,7 +63,6 @@ class DirectoryCard extends React.Component{
     render() {
         const {
             onSelect,
-            gameId,
             gameName,
             gameImageSrc,
         } = this.props;

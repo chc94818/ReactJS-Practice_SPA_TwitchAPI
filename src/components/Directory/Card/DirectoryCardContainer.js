@@ -31,13 +31,11 @@ class DirectoryCardContainer extends React.Component{
     }
     render() {
         const {
-            gameId,
             gameName,
             gameImgURL,
         } = this.props;
         return (
             <DirectCard onSelect={this.clickHandler}
-                        gameId={gameId}
                         gameName={gameName}
                         gameImageSrc={gameImgURL}
             />

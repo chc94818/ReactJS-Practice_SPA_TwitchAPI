@@ -6,7 +6,7 @@ import AppContainer from './components/App/AppContainer';
 import * as serviceWorker from './serviceWorker';
 import NavigatorReducer from './reducers/NavigatorReducer'
 import GameReducer from './reducers/GameReducer'
-
+import ChannelReducer from './reducers/ChannelReducer'
 
 const thunkMiddleware = ({ dispatch, getState }) => {
     return (next) => (action) => {
@@ -17,7 +17,7 @@ const thunkMiddleware = ({ dispatch, getState }) => {
     };
 };
 
-const composedReducer = combineReducers({NavigatorReducer, GameReducer});
+const composedReducer = combineReducers({NavigatorReducer, GameReducer, ChannelReducer});
 const store = createStore(
     composedReducer,
     applyMiddleware(thunkMiddleware)

@@ -111,9 +111,10 @@ class ChannelCard extends React.Component{
     render() {
         const {
             channel,
+            onSelect,
         } = this.props;
         return(
-            <CardContainer >
+            <CardContainer onClick={onSelect}>
                 <CardDiv>
                     <ImgContainer>
                         <LiveText>LIVE</LiveText>

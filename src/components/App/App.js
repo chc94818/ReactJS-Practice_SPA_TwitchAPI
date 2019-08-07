@@ -17,6 +17,7 @@ const BodyDiv = styled.div`
     display: flex;
     background: #3B3B3B;    
     flex-direction: column;
+    font-family: Arial;
     width : 100%;
     min-height : 100vh;
 `;

@@ -10,8 +10,8 @@ const LiveContainer = styled.div`
     font-weight: bold;
     color: white;
     font-size: 0;
-    width: 60%
-    padding-bottom: 48%;
+    width: 50%
+    padding-bottom: 40%;
     @media screen and (max-width:1400px) {
         width: 80%;
         padding-bottom: 56%;

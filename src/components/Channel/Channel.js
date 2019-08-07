@@ -1,7 +1,7 @@
 import React from 'react';
-import DirectoryCardContainer from "../Directory/Card/DirectoryCardContainer";
 import ChannelCardContainer from "./Card/ChannelCardContainer";
 import styled from "styled-components";
+import LoadButtonContainer from '../LoadButton/LoadButtonContainer';
 
 const ChannelsDiv = styled.div`
     display: flex;
@@ -9,6 +9,7 @@ const ChannelsDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 100px;
 `;
 
 const GameDiv = styled.div`
@@ -94,6 +95,8 @@ class Channel extends React.Component{
     render() {
         const {
             channels,
+            buttonSet,
+            updateChannels,
         } = this.props;
         const channelCards = channels.map((channel) => {
             return (
@@ -105,10 +108,11 @@ class Channel extends React.Component{
         });
         return(
             <ChannelsDiv>
-                {this.renderGameTitle()}
+                {buttonSet ? this.renderGameTitle() : ""}
                 <CardGrid>
                     {channelCards}
                 </CardGrid>
+                {buttonSet ? <LoadButtonContainer handler={() => updateChannels()}/> : ""}
             </ChannelsDiv>
         );
     }

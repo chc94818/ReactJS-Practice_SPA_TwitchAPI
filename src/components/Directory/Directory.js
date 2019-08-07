@@ -7,7 +7,8 @@ const DirectoryDiv = styled.div`
     width: 100%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
+    padding-bottom: 100px;
 `;
 
 const CardGrid = styled.div`

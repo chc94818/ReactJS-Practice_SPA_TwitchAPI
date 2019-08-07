@@ -5,7 +5,7 @@ import NavigatorContainer from '../Navigator/NavigatorContainer'
 import HomeContainer from '../Home/HomeContainer'
 import DirectoryContainer from '../Directory/DirectoryContainer';
 import LiveContainer from '../Live/LiveContainer';
-
+import ChannelContainer from '../Channel/ChannelContainer'
 const AppDiv = styled.div`
     display: flex;
     background: #3B3B3B;
@@ -30,6 +30,7 @@ class App extends React.Component {
                         <Route exact path="/" component={HomeContainer}/>
                         <Route exact path="/live" component={LiveContainer}/>
                         <Route exact path="/directory" component={DirectoryContainer}/>
+                        <Route exact path="/directory/channels" component={ChannelContainer}/>
                     </AppDiv>
                 </BodyDiv>
             </BrowserRouter>

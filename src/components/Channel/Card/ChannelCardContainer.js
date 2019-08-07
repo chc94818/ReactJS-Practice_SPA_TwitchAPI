@@ -3,6 +3,7 @@ import ChannelCard from './ChannelCard'
 import {connect} from "react-redux";
 import {withRouter} from 'react-router-dom';
 import NavigatorActions from '../../../actions/NavigatorActions'
+import WatchingActions from '../../../actions/WatchingActions'
 
 class ChannelCardContainer extends React.Component{
     constructor(props) {
@@ -12,10 +13,13 @@ class ChannelCardContainer extends React.Component{
 
     clickHandler() {
         const {
+            channel,
             history,
-            onSelect
+            onSelect,
+            updateWatching
         } = this.props;
         // link to /live
+        updateWatching(channel);
         history.push({pathname: `/live`});
         onSelect(-1);
     }
@@ -34,5 +38,6 @@ export default withRouter(ChannelCardContainer = connect(
     (state) => ({channels: state.ChannelReducer}),
     {
         onSelect: NavigatorActions.onSelect,
+        updateWatching: WatchingActions.updateWatching,
     }
 )(ChannelCardContainer));

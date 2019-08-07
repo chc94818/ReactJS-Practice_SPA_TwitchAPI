@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import DirectoryCardContainer from "./Card/DirectoryCardContainer";
+import LoadButtonContainer from '../LoadButton/LoadButtonContainer';
 
 const DirectoryDiv = styled.div`
     display: flex;
@@ -29,6 +30,8 @@ class Directory extends React.Component{
     render() {
         const {
             games,
+            buttonSet,
+            updateGames,
         } = this.props;
         const gameCards = games.map((game) => {
             return (
@@ -46,6 +49,7 @@ class Directory extends React.Component{
               <CardGrid>
                  {gameCards}
               </CardGrid>
+              {buttonSet ? <LoadButtonContainer handler={updateGames}/>: ""}
           </DirectoryDiv>
         );
     }

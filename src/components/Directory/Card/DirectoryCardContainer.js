@@ -39,7 +39,8 @@ class DirectoryCardContainer extends React.Component{
             <DirectCard onSelect={this.clickHandler}
                         gameId={gameId}
                         gameName={gameName}
-                        gameImageSrc={gameImgURL}/>
+                        gameImageSrc={gameImgURL}
+            />
         );
     }
 }

@@ -10,12 +10,15 @@ class ChannelContainer extends React.Component{
         const {
             channels,
             range,
+            location,
         } = this.props;
 
         const sliceChannels = range ? channels.slice(0, range) : channels;
         return(
             <Channel
                 channels={sliceChannels}
+                gameName={location.state? location.state.gameName:""}
+                gameImgURL={location.state? location.state.gameImgURL:""}
             />
         );
     }

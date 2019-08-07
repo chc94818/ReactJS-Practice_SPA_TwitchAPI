@@ -60,13 +60,14 @@ const InformationDiv = styled.div`
 class DirectoryCard extends React.Component{
     render() {
         const {
+            onSelect,
             gameId,
             gameName,
             gameImageSrc,
         } = this.props;
 
         return(
-            <CardContainer>
+            <CardContainer onClick={onSelect}>
                 <CardDiv>
                     <ImgContainer>
                         <Img alt={'game'} src={gameImageSrc}/>

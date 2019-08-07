@@ -2,16 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
-    background: #5E5E5E;
     position: relative;
     display: block;
     padding-bottom: 160%;
     width: 100%;
-    
-    
     border-style: solid;
     border-width: 2px;    
     border-color: #737373;
+    cursor: pointer;
+    background: #5E5E5E;
+    &:hover {
+      background: #6E6E6E;
+    }
 `;
 const CardDiv = styled.div`
     position: absolute;    

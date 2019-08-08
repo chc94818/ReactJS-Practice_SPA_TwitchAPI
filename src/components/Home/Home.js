@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ChannelContainer from '../Channel/ChannelContainer'
 import DirectoryContainer from '../Directory/DirectoryContainer';
+import MultiLivesContainer from '../Live/MultiLivesContainer';
 
 const HomeDiv = styled.div`
     display: flex;
@@ -64,6 +65,9 @@ class Home extends React.Component {
         return (
             <HomeDiv>
                 <RecommendDiv>
+                    <RecommendLiveDiv>
+                        <MultiLivesContainer liveNum={5} />
+                    </RecommendLiveDiv>
                     <GameDiv>
                         <TitleDiv>推薦的分類</TitleDiv>
                         <DirectoryContainer buttonSet={false} range={recommendClassNum}/>

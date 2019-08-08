@@ -70,6 +70,7 @@ const InformationDiv = styled.div`
 `;
 
 const LogoContainer = styled.div`
+    flex-shrink: 0;
     display: inline-block;
     position: relative;
     width: 20%;
@@ -90,6 +91,7 @@ const TextContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;   
     height: 100%;
+    padding-left: 10px;
      
     & *{
         margin: auto 0;
